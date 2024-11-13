@@ -40,7 +40,7 @@ template:
                     identifier: approval
                     spec:
                       autoApprove: false
-                    timeout: 1h
+                    timeout: 2h
                 - step:
                     type: IACMTerraformPlugin
                     name: apply
@@ -49,4 +49,4 @@ template:
                       command: apply
                     timeout: 10m
           tags: {}
-  versionLabel: "1.2"
+  versionLabel: "1.3"
