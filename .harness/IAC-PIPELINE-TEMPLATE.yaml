@@ -7,7 +7,7 @@ template:
     stages:
       - stage:
           name: execute-terraform-with-approval
-          identifier: manages3bucket
+          identifier: execute
           description: ""
           type: IACM
           spec:
