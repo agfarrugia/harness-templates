@@ -1,0 +1,46 @@
+template:
+  name: IPD-CI-PIPELINE-JAVA17
+  identifier: IPDCIPIPELINEJAVA17
+  versionLabel: "1"
+  type: Pipeline
+  tags: {}
+  spec:
+    properties:
+      ci:
+        codebase:
+          connectorRef: account.GitAppPOCApp
+          repoName: <+input>
+          build: <+input>
+    stages:
+      - stage:
+          name: Build and Test
+          identifier: BuildCode
+          description: ""
+          type: CI
+          spec:
+            cloneCodebase: true
+            infrastructure:
+              type: KubernetesDirect
+              spec:
+                connectorRef: account.nuccluster
+                namespace: build-agents
+                automountServiceAccountToken: true
+                nodeSelector: {}
+                os: Linux
+            execution:
+              steps:
+                - step:
+                    type: Run
+                    name: Build and Test
+                    identifier: Build_and_Test
+                    spec:
+                      connectorRef: account.harnessImage
+                      image: gradle:jdk17
+                      shell: Sh
+                      command: ./gradlew test
+                    description: Build Java 17 App
+            caching:
+              enabled: false
+              paths: []
+            buildIntelligence:
+              enabled: false
