@@ -1,0 +1,18 @@
+pipeline:
+  name: CI-Petclinic
+  identifier: CIPetclinic
+  tags: {}
+  template:
+    templateRef: account.IPDCIPIPELINEJAVA17
+    versionLabel: "1"
+    templateInputs:
+      properties:
+        ci:
+          codebase:
+            repoName: petclinic
+            build:
+              spec:
+                branch: main
+              type: branch
+  projectIdentifier: default_project
+  orgIdentifier: default
