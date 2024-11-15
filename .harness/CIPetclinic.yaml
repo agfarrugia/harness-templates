@@ -3,8 +3,8 @@ pipeline:
   identifier: CIPetclinic
   tags: {}
   template:
-    templateRef: account.IPDCIPIPELINEJAVA17
-    versionLabel: "1"
+    templateRef: account.IPDCDPIPELINEJAVA21
+    versionLabel: "1.0"
     templateInputs:
       properties:
         ci:
